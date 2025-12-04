@@ -1,0 +1,24 @@
+{
+  "name": "niko-atmosfera-teaser",
+  "version": "1.0.0",
+  "description": "Refactored coming soon page for Niko Atmosfera",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -o",
+    "dev": "npx live-server --open=index.html"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "landing-page",
+    "teaser",
+    "responsive"
+  ],
+  "author": "Niko Atmosfera",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  }
+}
