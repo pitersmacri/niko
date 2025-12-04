@@ -1,0 +1,286 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0e0e0e;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Logo styles */
+.logo-container {
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out 0.3s forwards;
+}
+
+.logo {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.05), 
+        rgba(255, 255, 255, 0.1)
+    );
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+.logo-container:hover .logo {
+    transform: scale(1.03) translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.logo-container:hover .logo-glow {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+    }
+    25% {
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.15);
+    }
+    50% {
+        box-shadow: 0 0 0 16px rgba(255, 255, 255, 0.05);
+    }
+    75% {
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* Title styles */
+.main-title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 300;
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out 0.8s forwards;
+    background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Social section styles */
+.social-section {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out 1.3s forwards;
+}
+
+.social-title {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #ccc;
+    letter-spacing: 0.02em;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.social-link:hover::before {
+    width: 120px;
+    height: 120px;
+}
+
+.social-link:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.instagram:hover { color: #E4405F; }
+.facebook:hover { color: #1877F2; }
+.linkedin:hover { color: #0A66C2; }
+.whatsapp:hover { color: #25D366; }
+
+/* Footer styles */
+.footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.8s forwards;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #999;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .logo-container {
+        margin-top: 6rem;
+        margin-bottom: 3rem;
+    }
+
+    .logo {
+        max-width: 180px;
+    }
+
+    .social-links {
+        gap: 1.2rem;
+    }
+
+    .social-link {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        margin-top: 4rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+
+    .main-title {
+        margin-bottom: 2.5rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced animations for better user experience */
+.social-link {
+    animation: float 6s ease-in-out infinite;
+}
+
+.social-link:nth-child(1) { animation-delay: 0s; }
+.social-link:nth-child(2) { animation-delay: 1.5s; }
+.social-link:nth-child(3) { animation-delay: 3s; }
+.social-link:nth-child(4) { animation-delay: 4.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.social-link:hover {
+    animation-play-state: paused;
+}
